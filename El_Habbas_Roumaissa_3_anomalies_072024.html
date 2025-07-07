@@ -1,0 +1,2046 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\,";
+    mso-displayed-thousand-separator:" ";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="72">
+            <img src="https://roumaissach.atlassian.net/images/icon-jira-family-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="72">
+            <a href="https://roumaissach.atlassian.net/issues/?jql=project+%3D+%22KAN%22+ORDER+BY+created+DESC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="72">
+            Affichage de <strong>14</strong> ticket(s) à <strong>23/août/24 1:16 AM</strong>.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Projet
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Clé
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Résumé
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Type de ticket
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        État
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Priorité
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Résolution
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Assigné(e)
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Rapporteur
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Créateur
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Création
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Dernier affichage
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Mise à jour
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Résolu
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-versions" data-id="versions">
+                                                        Versions affectées
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Versions corrigées
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-components" data-id="components">
+                                                        Composants
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Date d&#39;échéance
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Observateurs
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Images
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Estimation originale
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Estimation restante
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Temps consacré
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Ratio du travail réel comparé à l&#39;estimation
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Sous-tâches
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Tickets liés
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Environnement
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Description
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Niveau de sécurité
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progression
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progrès
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Temps consacré
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Estimation restante
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ Estimation originale
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Étiquettes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Catégorie d&#39;état modifiée
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Catégorie d&#39;état
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Parent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10009" data-id="customfield_10009">
+                                                        Actual end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10008" data-id="customfield_10008">
+                                                        Actual start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10003" data-id="customfield_10003">
+                                                        Approvers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10007" data-id="customfield_10007">
+                                                        Change reason
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10006" data-id="customfield_10006">
+                                                        Change risk
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10005" data-id="customfield_10005">
+                                                        Change type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10013" data-id="customfield_10013">
+                                                        Epic Color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10014" data-id="customfield_10014">
+                                                            <span class="deprecated-searcher-icon" title="">
+                                    <div class="deprecated-tooltip table-deprecated-tooltip" role="tooltip" title="">
+                                        <p class="deprecated-tooltip-text table-deprecated-tooltip-text">
+                                            Epic Link sera bientôt remplacé par le parent.
+                                        </p>
+                                    </div>
+                                </span>
+                                                        Epic Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10011" data-id="customfield_10011">
+                                                        Epic Name
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10012" data-id="customfield_10012">
+                                                        Epic Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10004" data-id="customfield_10004">
+                                                        Impact
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10026" data-id="customfield_10026">
+                                                        Formulaires verrouillés
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10027" data-id="customfield_10027">
+                                                        Formulaires ouverts
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10002" data-id="customfield_10002">
+                                                        Organizations
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10018" data-id="customfield_10018">
+                                                            <span class="deprecated-searcher-icon" title="">
+                                    <div class="deprecated-tooltip table-deprecated-tooltip" role="tooltip" title="">
+                                        <p class="deprecated-tooltip-text table-deprecated-tooltip-text">
+                                            Parent Link sera bientôt remplacé par le parent.
+                                        </p>
+                                    </div>
+                                </span>
+                                                        Parent Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10034" data-id="customfield_10034">
+                                                        Project overview key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10035" data-id="customfield_10035">
+                                                        Project overview status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10010" data-id="customfield_10010">
+                                                        Request Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10033" data-id="customfield_10033">
+                                                        Sentiment
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10032" data-id="customfield_10032">
+                                                        Story Points
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10028" data-id="customfield_10028">
+                                                        Formulaires envoyés
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10023" data-id="customfield_10023">
+                                                        Target end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10022" data-id="customfield_10022">
+                                                        Target start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10001" data-id="customfield_10001">
+                                                        Team
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10029" data-id="customfield_10029">
+                                                        Nombre total de formulaires
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10024" data-id="customfield_10024">
+                                                        [CHART] Date of First Response
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        development
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10019" rel="10019" data-issuekey="KAN-20" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-20" href="https://roumaissach.atlassian.net/browse/KAN-20">KAN-20</a>
+</td>
+                                            <td class="summary"><p>
+                Pas de message d&#39;erreur si je clique sur le bouton envoyer avec des champs vides sur le formulaire de contact
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 23/août/24 12:05 AM </td>
+                                            <td class="lastViewed"> 23/août/24 1:16 AM </td>
+                                            <td class="updated"> 23/août/24 1:13 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-20" href="https://roumaissach.atlassian.net/secure/attachment/10018/image-20240822-224755.png">
+            image-20240822-224755.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Etant donné* je suis sur le formulaire de contact ,*Quand* je laisse des champs vides et je clique sur envoyer, *Alors* pas de message d’erreur qui s’affiche<br/>
+<br/>
+||*Action*||*Résultat Attendu*||*Résultat Actuel*||<br/>
+|Saisir le nom “test”|Bien saisi| |<br/>
+|laisser le champs prénom vide| |OK|<br/>
+|Ne pas Selectionner contact  type| | |<br/>
+|Laisser le champs email vide| |OK|<br/>
+|Laisser le champs message vide| |OK|<br/>
+|Cliquer sur le bouton “Envoyer”|un message s&#39;affiche   pour indiquer qu&#39;il manque des informations|{color:#ff5630}KO {color}<br/>
+Pas de message d’envoi <br/>
+avec succès|<br/>
+<br/>
+<br/>
+<br/>
+!image-20240822-225143.png|width=1054,height=539,alt=&quot;image-20240822-225143.png&quot;!<br/>
+<br/>
+<br/>
+<br/>
+network :  <br/>
+<br/>
+!image-20240822-224755.png|width=100%,alt=&quot;image-20240822-224755.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 23/août/24 12:05 AM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i00033:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10018" rel="10018" data-issuekey="KAN-19" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-19" href="https://roumaissach.atlassian.net/browse/KAN-19">KAN-19</a>
+</td>
+                                            <td class="summary"><p>
+                Les adresse affichés sur les map des événements sont incorrectes
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 13/août/24 7:09 PM </td>
+                                            <td class="lastViewed"> 23/août/24 12:53 AM </td>
+                                            <td class="updated"> 23/août/24 1:13 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-19" href="https://roumaissach.atlassian.net/secure/attachment/10020/image-20240822-225346.png">
+            image-20240822-225346.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Etant donné* je suis sur la page d’un événement ,*Quand* je chaque l’adresse sur la map, *Alors* l’adresse n’est pas la bonne et c’est la même adresse pour tous les événements <br/>
+<br/>
+<br/>
+<br/>
+||*Action*||*Résultat Attendu*||*Résultat Actuel*||<br/>
+|Cliquer sur l&#39;item &quot;Nos réalisations&quot; du menu ou scroller jusqu&#39;à cette section|Cette section présente les réalisations de l&#39;agence<br/>
+Elle contient : une liste de choix, des vignettes correspondants aux réalisations de l&#39;agence et une pagination|OK<br/>
+<br/>
+OK|<br/>
+|Cliquer sur la vignette #DigitonPARIS|-Une nouvelle page s&#39;ouvre<br/>
+-Elle contient  une map google avec la bonne adresse de l&#39;événement à Paris|KO<br/>
+_ La map contient une adresse en usa alors que c’est un événement à paris   et tous les évenments sont avec la même adresse sur les maps|<br/>
+<br/>
+<br/>
+<br/>
+!image-20240822-225346.png|width=532,height=517,alt=&quot;image-20240822-225346.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 7:09 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i0002v:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10017" rel="10017" data-issuekey="KAN-18" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-18" href="https://roumaissach.atlassian.net/browse/KAN-18">KAN-18</a>
+</td>
+                                            <td class="summary"><p>
+                Formulaire de contact non affiché correctement en mode responsive mobile
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 13/août/24 7:09 PM </td>
+                                            <td class="lastViewed"> 23/août/24 12:54 AM </td>
+                                            <td class="updated"> 23/août/24 12:57 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-18" href="https://roumaissach.atlassian.net/secure/attachment/10015/image-20240813-171301.png">
+            image-20240813-171301.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Etant donné* je suis sur la page de contact ,*Quand* je passe en mode responsive mobile ,*Alors* les champs de formulaire ne sont pas affichés correctement et je peux pas atteindre le bouton envoyer <br/>
+<br/>
+<br/>
+<br/>
+||*Action*||*Résultat Attendu*||*Résultat Actuel*||<br/>
+|Passer en mode responsive mobile et ouvrir le formulaire de contact|Tous les champs du formulaire sont bien affichés|KO<br/>
+Les champs ne sont pas affichés en entiers quand la taille de l&#39;écran est petite|<br/>
+| |un bouton envoyer est présent|KO <br/>
+Le bouton n’est pas visible|<br/>
+<br/>
+!image-20240813-171301.png|width=252,height=309,alt=&quot;image-20240813-171301.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/août/24 7:09 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i0002n:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10013" rel="10013" data-issuekey="KAN-14" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-14" href="https://roumaissach.atlassian.net/browse/KAN-14">KAN-14</a>
+</td>
+                                            <td class="summary"><p>
+                Bouton envoyer apparaît non fonctionnel dans le formulaire de contact à cause de l&#39;absence d&#39;un message de succès
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 26/juil./24 5:03 PM </td>
+                                            <td class="lastViewed"> 23/août/24 1:12 AM </td>
+                                            <td class="updated"> 23/août/24 1:12 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-14" href="https://roumaissach.atlassian.net/secure/attachment/10017/image-20240822-223117.png">
+            image-20240822-223117.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Etant donné* je suis sur la page de contact ,*Quand* je remplie le formulaire correctement et je clique sur le bouton “Envoyer”, Alors pas de message de succès qui s’affiche<br/>
+<br/>
+||*Action*||*Résultat Attendu*||*Résultat Actuel*||<br/>
+|Saisir le nom “test”|Bien saisi|OK|<br/>
+|Saisir le prénom “test”|Bien saisi|OK|<br/>
+|Selectionner personnel/entreprise|Bien sélectionné| |<br/>
+|Saisir l’email “test@test.fr”|Bien saisi|OK|<br/>
+|Saisir le message “test message”|Bien saisie|OK|<br/>
+|Cliquer sur le bouton “Envoyer”|un message s&#39;affiche  indiquant que le formulaire est envoyé|{color:#ff5630}KO {color}<br/>
+Pas de message d’envoi <br/>
+avec succès|<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+!image-20240822-223117.png|width=1068,height=580,alt=&quot;image-20240822-223117.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 26/juil./24 5:03 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i0002f:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10012" rel="10012" data-issuekey="KAN-13" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-13" href="https://roumaissach.atlassian.net/browse/KAN-13">KAN-13</a>
+</td>
+                                            <td class="summary"><p>
+                Bouton envoyer apparaît non fonctionnel dans les formulaires de réservation d&#39;événements à cause de l&#39;absence d&#39;un message de succès 
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 26/juil./24 4:47 PM </td>
+                                            <td class="lastViewed"> 23/août/24 12:59 AM </td>
+                                            <td class="updated"> 23/août/24 12:30 AM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-13" href="https://roumaissach.atlassian.net/secure/attachment/10016/image-20240822-222213.png">
+            image-20240822-222213.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Etant donné* je suis sur une page d’un événement, *Quand* je remplis le formulaire de réservation correctement et je clique sur le bouton “Envoyer” ,Alors pas de message indiquant que le formulaire est bien envoyé<br/>
+<br/>
+||*Action*||*Résultat Attendu*||*Résultat Actuel*||<br/>
+|Cliquer sur l&#39;image &quot;Sneakercraze market&quot; du slider|-Une nouvelle page s&#39;ouvre avec l&#39;événement<br/>
+-Un formulaire de réservation est présent|OK<br/>
+<br/>
+OK|<br/>
+|Remplire le formulaire|Saisies affiché|OK|<br/>
+|Cliquer sur le bouton envoyer|un message indiquant que le formulaire est envoyé s’affiche|{color:#ff5630}KO{color}<br/>
+Pas de message de succès|<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+!image-20240822-222213.png|width=554,height=535,alt=&quot;image-20240822-222213.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 26/juil./24 4:47 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i00027:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10011" rel="10011" data-issuekey="KAN-12" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-12" href="https://roumaissach.atlassian.net/browse/KAN-12">KAN-12</a>
+</td>
+                                            <td class="summary"><p>
+                Pas de redirection lors du clics sur les Items dans le menu à partir la page &quot;Nos réalisation&quot;
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 26/juil./24 2:22 PM </td>
+                                            <td class="lastViewed"> 22/août/24 5:56 PM </td>
+                                            <td class="updated"> 22/août/24 5:56 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Etant donné* je suis sur une page d’une vignette de “Nos réalisation” ,*Quand* je clique sur un item dans le menu ,Alors pas de redirection vers la section correspondante dans la page d’accueil<br/>
+<br/>
+||*Action*||*Résultat Attendu*||*Résultat Actuel*||<br/>
+|Saisir le nom “test”|Bien saisi|OK|<br/>
+|Saisir le prénom “test”|Bien saisi|OK|<br/>
+|Saisir l’email “test@test.fr”|Bien saisie|OK|<br/>
+|Cliquer sur le bouton “Envoyer”|un message s&#39;affiche  indiquant que le formulaire est envoyé|{color:#ff5630}KO {color}<br/>
+Pas de message d’envoi <br/>
+avec succès|
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 26/juil./24 2:22 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i0001z:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10008" rel="10008" data-issuekey="KAN-9" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-9" href="https://roumaissach.atlassian.net/browse/KAN-9">KAN-9</a>
+</td>
+                                            <td class="summary"><p>
+                Envoyer un formulaire de contact avec des caractères spéciaux dans tous les champs
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 19/juil./24 4:02 PM </td>
+                                            <td class="lastViewed"> 13/août/24 7:04 PM </td>
+                                            <td class="updated"> 26/juil./24 5:13 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-9" href="https://roumaissach.atlassian.net/secure/attachment/10007/image-20240719-105644.png">
+            image-20240719-105644.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks">                                        KAN-5                        </td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Quand* j’envoie un message de contact avec des caractères spéciaux dans tous les champs, *Alors* le formulaire est envoyé sans erreurs<br/>
+<br/>
+*Route* {{: POST /contact/}}<br/>
+<br/>
+*body*: <br/>
+<br/>
+{<br/>
+  &quot;name&quot;: &quot;!!!&quot;,<br/>
+  &quot;surname&quot;: &quot;!!!&quot;,<br/>
+  &quot;contactType&quot;: &quot;!!!&quot;,<br/>
+  &quot;email&quot;: &quot;!!!&quot;,<br/>
+  &quot;message&quot;: &quot;!!!&quot;<br/>
+}<br/>
+<br/>
+!image-20240719-140822.png|width=409,height=437,alt=&quot;image-20240719-140822.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 19/juil./24 4:02 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i0001j:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10007" rel="10007" data-issuekey="KAN-8" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-8" href="https://roumaissach.atlassian.net/browse/KAN-8">KAN-8</a>
+</td>
+                                            <td class="summary"><p>
+                Le filtre des vignettes selon la catégorie ne fonctionne pas dans la section &quot;Nos réalisation&quot;
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 19/juil./24 3:25 PM </td>
+                                            <td class="lastViewed"> 22/août/24 4:37 PM </td>
+                                            <td class="updated"> 22/août/24 4:37 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-8" href="https://roumaissach.atlassian.net/secure/attachment/10005/image-20240719-133950.png">
+            image-20240719-133950.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Étant donné* je suis sur la section “Nos réalisations”, *Quand* je clique sur la liste de choix et je sélectionne une catégorie, *Alors* Les vignettes affichées ne sont pas filtrées en fonction de la catégorie choisie<br/>
+<br/>
+||*Action*||*Résultat Attendu*||*Résultat Actuel*||<br/>
+|Scroller jusqu&#39;à cette section|Cette section présente les réalisations de l&#39;agence|OK|<br/>
+|Cliquer dans la liste de choix et sélectionner une catégorie|Les vignettes affichées sont filtrées en fonction de la catégorie choisie|{color:#ff5630}KO{color}<br/>
+Les vignettes ne sont pas filtrées en fonction de la catégorie choisie|<br/>
+<br/>
+!image-20240719-133950.png|width=1232,height=586,alt=&quot;image-20240719-133950.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 19/juil./24 3:25 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i0001b:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10006" rel="10006" data-issuekey="KAN-7" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-7" href="https://roumaissach.atlassian.net/browse/KAN-7">KAN-7</a>
+</td>
+                                            <td class="summary"><p>
+                La pagination ne fonctionne pas sur la section &quot;Nos réalisation&quot;
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 19/juil./24 1:29 PM </td>
+                                            <td class="lastViewed"> 26/juil./24 5:42 PM </td>
+                                            <td class="updated"> 26/juil./24 3:26 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Étant donné* je suis sur la section “Nos réalisations”, *Quand* je clique sur la page suivante pour accéder aux réalisations suivantes ,*Alors* la page suivante ne s’affiche pas<br/>
+<br/>
+||*Action*||*Résultat Attendu*||*Résultat Actuel*||<br/>
+|Scroller jusqu&#39;à cette section|Cette section présente les réalisations de l&#39;agence|OK|<br/>
+|Cliquer sur la page suivante pour accéder aux réalisations suivantes|Les réalisations suivantes s&#39;affichent|{color:#ff5630}KO{color}<br/>
+La page suivante ne s’affiche pas|
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 19/juil./24 1:29 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i00013:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10005" rel="10005" data-issuekey="KAN-6" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-6" href="https://roumaissach.atlassian.net/browse/KAN-6">KAN-6</a>
+</td>
+                                            <td class="summary"><p>
+                Erreur du défilement des images du slider
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 19/juil./24 1:20 PM </td>
+                                            <td class="lastViewed"> 22/août/24 4:36 PM </td>
+                                            <td class="updated"> 22/août/24 4:36 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-6" href="https://roumaissach.atlassian.net/secure/attachment/10003/image-20240719-112546.png">
+            image-20240719-112546.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Étant donné* je suis sur la page d’accueil, *Quand* les images du  slider défilent, *Alors* après la 3ème image, une image blanche s&#39;affiche au lieu d&#39;afficher la 1ere image<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+!image-20240719-112546.png|width=1337,height=587,alt=&quot;image-20240719-112546.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 19/juil./24 1:20 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i0000v:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10004" rel="10004" data-issuekey="KAN-5" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-5" href="https://roumaissach.atlassian.net/browse/KAN-5">KAN-5</a>
+</td>
+                                            <td class="summary"><p>
+                Envoyer un formulaire de contact avec un email de mauvaise format
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 19/juil./24 12:46 PM </td>
+                                            <td class="lastViewed"> 22/août/24 3:46 PM </td>
+                                            <td class="updated"> 09/août/24 7:00 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-5" href="https://roumaissach.atlassian.net/secure/attachment/10002/image-20240719-105644.png">
+            image-20240719-105644.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks">                                        KAN-9                        </td>
+                                            <td class="environment"></td>
+                                            <td class="description">             *Quand* j’envoie un message de contact avec un email de mauvaise format, *Alors* le formulaire est envoyé sans erreurs<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+!image-20240719-105644.png|width=442,height=227,alt=&quot;image-20240719-105644.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 19/juil./24 12:46 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i0000n:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10003" rel="10003" data-issuekey="KAN-4" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-4" href="https://roumaissach.atlassian.net/browse/KAN-4">KAN-4</a>
+</td>
+                                            <td class="summary"><p>
+                Test APi: Erreur 400 pour la route /inscription
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           Highest
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 19/juil./24 12:09 PM </td>
+                                            <td class="lastViewed"> 22/août/24 4:35 PM </td>
+                                            <td class="updated"> 09/août/24 7:01 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-4" href="https://roumaissach.atlassian.net/secure/attachment/10001/image-20240719-101916.png">
+            image-20240719-101916.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Étant donné* je suis sur la route /inscription dans swagger, *Quand* je remplis le body correctement *et* j’execute la route, *Alors* j’ai une erreur 400<br/>
+<br/>
+<br/>
+<br/>
+*Route* : *POST* /inscription<br/>
+<br/>
+*Body* : {<br/>
+  &quot;eventId&quot;: &quot;669a37d825a36cf132aa424c&quot;,<br/>
+  &quot;name&quot;: &quot;John&quot;,<br/>
+  &quot;surname&quot;: &quot;Doe&quot;,<br/>
+  &quot;email&quot;: &quot;johndoe@test.tld&quot;,<br/>
+  &quot;date&quot;: &quot;2022-04-29T20:28:45.744Z&quot;<br/>
+}<br/>
+<br/>
+*Response* : {color:#ff5630}400 Bad request{color}<br/>
+<br/>
+<br/>
+<br/>
+!image-20240719-101916.png|width=785,height=574,alt=&quot;image-20240719-101916.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 19/juil./24 12:09 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i0000f:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10002" rel="10002" data-issuekey="KAN-3" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-3" href="https://roumaissach.atlassian.net/browse/KAN-3">KAN-3</a>
+</td>
+                                            <td class="summary"><p>
+                Erreur lors du clic sur l&#39;image dans le Footer
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           High
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 19/juil./24 12:05 PM </td>
+                                            <td class="lastViewed"> 22/août/24 11:55 PM </td>
+                                            <td class="updated"> 22/août/24 11:55 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail">            <a aria-label="Sélectionnez pour télécharger l'image pour KAN-3" href="https://roumaissach.atlassian.net/secure/attachment/10006/image-20240719-135053.png">
+            image-20240719-135053.png
+        </a>
+    </td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Étant donné* je suis sur la footer sur la section “Notre dernière prestation”, *Quand* je clique sur l’image affiché, *Alors* une erreur est affichée<br/>
+<br/>
+<br/>
+<br/>
+||*Action*||*Résultat Attendu*||*Résultat Actuel*||<br/>
+|Scroller jusqu&#39;en bas de page|Le footer est séparé en 3 et est constitué : <br/>
+* d&#39;une partie &quot;Notre dernière prestation&quot; avec une image <br/>
+* d&#39;un encart &quot;Contactez-nous&quot; avec l&#39;adresse, le numéro de téléphone, l&#39;adresse email<br/>
+* d&#39;un encart &quot;724events&quot; avec un résumé des activités de l&#39;agence|OK|<br/>
+|Cliquer sur l&#39;image de la partie &quot;Notre dernière prestation&quot;|La page correspondante s’affiche|{color:#ff5630}KO{color}<br/>
+Une erreure s’affiche|<br/>
+<br/>
+<br/>
+<br/>
+!image-20240719-135053.png|width=853,height=596,alt=&quot;image-20240719-135053.png&quot;!
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 19/juil./24 12:05 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|i00007:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10001" rel="10001" data-issuekey="KAN-2" class="issuerow">
+                                            <td class="project">    Mon projet Kanban
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="KAN-2" href="https://roumaissach.atlassian.net/browse/KAN-2">KAN-2</a>
+</td>
+                                            <td class="summary"><p>
+                Pas de rechargement de la page d&#39;accueil lors du clic sur le logo
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Bug&lt;/span&gt;">Bug</span>    </td>
+                                            <td class="priority">           Low
+    </td>
+                                            <td class="resolution">    <em>Non résolu</em>
+</td>
+                                            <td class="assignee">    <em>Non assigné</em>
+</td>
+                                            <td class="reporter">            romi cha
+    </td>
+                                            <td class="creator">            romi cha
+    </td>
+                                            <td class="created"> 19/juil./24 12:02 PM </td>
+                                            <td class="lastViewed"> 26/juil./24 5:39 PM </td>
+                                            <td class="updated"> 26/juil./24 5:39 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">            *Étant donné* je suis sur la page d’accueil, *Quand* j’appuis sur le logo , *Alors* pas de rechargement de la page<br/>
+<br/>
+||*Action*||*Résultat Attendu*||*Résultat Actuel*||<br/>
+|Accéder à la page d&#39;accueil du site|La page s&#39;affiche|OK|<br/>
+|Cliquer sur le logo &quot;724events&quot; en haut à gauche|La page d&#39;accueil se recharge|{color:#ff5630}KO{color}|
+    </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 19/juil./24 12:02 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">A faire</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10009"></td>
+                                            <td class="customfield_10008"></td>
+                                            <td class="customfield_10003"></td>
+                                            <td class="customfield_10007"></td>
+                                            <td class="customfield_10006"></td>
+                                            <td class="customfield_10005"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10004"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10027"></td>
+                                            <td class="customfield_10002"><div class="shorten" id="customfield_10002-field">
+    </div>
+</td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10035"></td>
+                                            <td class="customfield_10019">      0|hzzzzz:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10028"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001">    Aucun(e)
+</td>
+                                            <td class="customfield_10029"></td>
+                                            <td class="customfield_10024"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="72"><font size="1">
+        Généré à Thu Aug 22 23:16:51 UTC 2024 par romi cha avec JIRA 1001.0.0-SNAPSHOT#100262-rev:c076123891a237f43b1d083c7eff35608c543d69.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
